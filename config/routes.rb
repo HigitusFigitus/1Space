@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  get 'pages/home'
+  namespace :api, :defaults => {:format => :json} do
+    namespace :v1 do
+      resources :texts, only: [:index]
+    end
+  end
+
   root 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'pages/home'
+  post 'api/v1/texts', to: 'api/v1/texts#index'
 end
