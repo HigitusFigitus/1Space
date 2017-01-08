@@ -2,8 +2,7 @@ class ApiResponse
   include ActiveModel::Model
 
   def self.create_corrected_text(inputted_text)
-    "#{inputted_text} has been received."
-    # text_from_page.gsub(/\. +/, ". ")
+    inputted_text.gsub(/\. +/, ". ")
   end
 
   def self.record_changes(inputted_text)
