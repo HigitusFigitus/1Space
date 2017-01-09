@@ -1,12 +1,17 @@
 class ApiResponse
-  include ActiveModel::Model
 
   def self.create_corrected_text(inputted_text)
     inputted_text.gsub(/\. +/, ". ")
   end
 
   def self.record_changes(inputted_text)
-    6
+    replaced_spaces_counter = 0
+    inputted_text.scan(/\. +/).each do |text_segment|
+      if text_segment != ". "
+        replaced_spaces_counter += text_segment.length - 2
+      end
+    end
+    replaced_spaces_counter
   end
 
   def self.build_response(inputted_text)
