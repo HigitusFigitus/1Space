@@ -1,5 +1,13 @@
 class ApiResponse
 
+  def self.build_response(inputted_text)
+    {
+      corrected_text: create_corrected_text(inputted_text),
+      extra_spaces: record_changes(inputted_text)
+    }.to_json
+  end
+
+  private
   def self.create_corrected_text(inputted_text)
     inputted_text.gsub(/\. +/, ". ")
   end
@@ -12,12 +20,5 @@ class ApiResponse
       end
     end
     replaced_spaces_counter
-  end
-
-  def self.build_response(inputted_text)
-    {
-      corrected_text: create_corrected_text(inputted_text),
-      extra_spaces: record_changes(inputted_text)
-    }.to_json
   end
 end
