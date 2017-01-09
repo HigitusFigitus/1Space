@@ -4,7 +4,7 @@
 
 </div class='form-control'>
   <%= form_tag('api/v1/texts', id: 'text-form', remote:true) do %>
-    <%= text_area_tag :text, params[:text], :required => 'required', class: 'form-control', id: 'text-area', :rows => 10 %>
+    <%= text_area_tag :text, params[:text], :maxlength => 30000, :required => 'required', class: 'form-control', id: 'text-area', :rows => 10 %>
     <%= submit_tag 'Submit your text', class: 'btn btn-primary btn-lg btn-block' %></div>
   <% end %>
 </div>
