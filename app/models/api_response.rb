@@ -19,6 +19,10 @@ class ApiResponse
         replaced_spaces_counter += text_segment.length - 2
       end
     end
-    replaced_spaces_counter
+    if replaced_spaces_counter == 0
+      "Your text didn't have any extra spaces after periods."
+    else
+      "#{replaced_spaces_counter} extra spaces were removed from your text."
+    end
   end
 end
