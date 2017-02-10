@@ -17,7 +17,7 @@
 + Go to `localhost:3000`.
 
 ## Usage
-![1Space app snapshot]()
+![1Space app snapshot](/public/1Space.gif)
 
 ## Stack
 + Ruby on Rails
